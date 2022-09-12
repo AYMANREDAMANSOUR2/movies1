@@ -1,4 +1,8 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:movies/Home/New_Relase_Movies/new_relase_widget.dart';
+import 'package:movies/Home/TopRated/Top_rated_widget.dart';
+import 'package:movies/Home/popular/popular_widget.dart';
 import 'package:movies/Model/Movies%20and%20Results.dart';
 import 'package:movies/Srevices/API/Api%20repository.dart';
 

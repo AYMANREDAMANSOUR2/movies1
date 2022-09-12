@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:movies/Model/Movies and Results.dart';
-
 import '../../Model/Geners.dart';
 
 class ApiRepository {

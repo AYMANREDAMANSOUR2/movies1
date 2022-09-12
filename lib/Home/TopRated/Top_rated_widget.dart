@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:movies/Home/details/more_movies_item.dart';
+import 'package:movies/Home/TopRated/top_rated_item.dart';
 import 'package:movies/Model/Movies%20and%20Results.dart';
 
-class MoreMoviesWidget extends StatelessWidget {
+class TopRatedWidget extends StatelessWidget {
   Movies? topMovies;
 
-  MoreMoviesWidget(this.topMovies);
+  TopRatedWidget(this.topMovies);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class MoreMoviesWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'More Like This',
+            'Recomended',
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
@@ -31,7 +31,7 @@ class MoreMoviesWidget extends StatelessWidget {
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemBuilder: (BuildContext context, int index) =>
-                  MoreMovieItem(topMovies, index),
+                  TopRatedItem(topMovies, index),
               itemCount: topMovies?.results?.length ?? 0,
             ),
           ),

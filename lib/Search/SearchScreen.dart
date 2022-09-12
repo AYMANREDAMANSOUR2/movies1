@@ -105,7 +105,7 @@ class _SearchScreenState extends State<SearchScreen> {
       ),
     );
   }
-
+//------------------------------------------------------------------------------------------
   List loadSearchData() {
     ApiRepository.fetchSearch(searchKey).then((value) {
       result = value.results ?? [];
