@@ -13,39 +13,35 @@ class PopularWidget extends StatelessWidget {
 
     return Container(
       height: size.height * 0.30,
-      margin: EdgeInsets.only(bottom: 5),
+      margin: EdgeInsets.only(bottom: 7),
       child: Stack(
         children: [
           Container(
             width: double.infinity,
             height: size.height * 0.22,
             child: Stack(
+              //                                                                 large
               children: [
-                Image.network(
-                  'https://image.tmdb.org/t/p/w500' +
-                      '${resultResponse!.backdropPath ?? ''}',
-                  fit: BoxFit.cover,
-                  width: double.infinity,
-                ),
-                Positioned(
+                Image.network('https://image.tmdb.org/t/p/w500' + '${resultResponse!.backdropPath ?? ''}', fit: BoxFit.cover, width: double.infinity,),
+                Positioned(                           // play circle
                   left: size.width * 0.40,
                   top: size.height * 0.09,
                   child: Icon(
                     Icons.play_circle_filled,
                     size: 70,
-                    color: Colors.white,
+                    color: Colors.blue,
                   ),
-                )
+                ) /// paly circle
               ],
-            ),
+            ),                                 //background image + circle play
           ),
-          Positioned(
+          Positioned(   // small container
             left: size.width * 0.05,
             top: size.height * 0.06,
             child: Row(
               children: [
                 PopularItem(resultResponse),
-                SizedBox(width: 10),
+                SizedBox(width: 15),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -59,7 +55,7 @@ class PopularWidget extends StatelessWidget {
                         fontSize: 16,
                         color: Colors.white,
                       ),
-                    ),
+                    ), // title
                     SizedBox(height: 8),
                     Text(
                       resultResponse!.releaseDate ?? '',
@@ -67,12 +63,12 @@ class PopularWidget extends StatelessWidget {
                         fontSize: 13,
                         color: Color.fromRGBO(181, 180, 180, 1.0),
                       ),
-                    ),
+                    ),// date
                   ],
                 ),
               ],
             ),
-          ),
+          ),  ///small container
         ],
       ),
     );

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movies/Home/details/more_movies_item.dart';
 import 'package:movies/Model/Movies%20and%20Results.dart';
-
+// belong to details screen
 class MoreMoviesWidget extends StatelessWidget {
   Movies? topMovies;
 
@@ -21,6 +21,7 @@ class MoreMoviesWidget extends StatelessWidget {
           Text(
             'More Like This',
             style: TextStyle(
+            decoration: TextDecoration.overline,
               fontSize: 16,
               fontWeight: FontWeight.bold,
               color: Colors.white,
@@ -30,8 +31,7 @@ class MoreMoviesWidget extends StatelessWidget {
           Expanded(
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemBuilder: (BuildContext context, int index) =>
-                  MoreMovieItem(topMovies, index),
+              itemBuilder: (BuildContext context, int index) => MoreMovieItem(topMovies, index),
               itemCount: topMovies?.results?.length ?? 0,
             ),
           ),

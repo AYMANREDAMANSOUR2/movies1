@@ -37,12 +37,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       style: TextStyle(color: Colors.white),
                     ),
                   );
-                } else if (snapshot.connectionState ==
-                    ConnectionState.waiting) {
+                } else if (snapshot.connectionState == ConnectionState.waiting) {
                   return Center(
-                    child: const CircularProgressIndicator(
-                      color: Color.fromRGBO(255, 187, 59, 1.0),
-                    ),
+                    child: const CircularProgressIndicator(color: Color.fromRGBO(255, 187, 59, 1.0),),
                   );
                 }
                 return CarouselSlider(
@@ -50,16 +47,17 @@ class _HomeScreenState extends State<HomeScreen> {
                     return PopularWidget(element);
                   }).toList(),
                   options: CarouselOptions(
-                    height: size.height * 0.30,
+                    height: size.height * 0.40,
                     initialPage: 0,
                     viewportFraction: 1.0,
                     enableInfiniteScroll: true,
                     autoPlay: true,
-                    reverse: false,
-                    autoPlayInterval: Duration(seconds: 8),
-                    autoPlayAnimationDuration: Duration(milliseconds: 400),
-                    autoPlayCurve: Curves.fastOutSlowIn,
-                    scrollDirection: Axis.horizontal,
+                    reverse: true,
+                    autoPlayInterval: Duration(seconds: 5),
+                    autoPlayAnimationDuration: Duration(milliseconds: 700),
+                    autoPlayCurve: Curves.linear,
+                    scrollDirection: Axis.vertical,
+
                   ),
                 );
               },
@@ -67,8 +65,9 @@ class _HomeScreenState extends State<HomeScreen> {
             FutureBuilder<Movies>(
               future: ApiRepository.fetchPopular(),
               builder: (context, snapshot) {
-                if (snapshot.hasData) {
+                if (snapshot.hasData) {                    //           get data
                   return NewRelaseWidget(snapshot.data);
+                  //------------------------------------------------------------------------------------
                 } else if (snapshot.hasError) {
                   return Center(
                       child: Text(
@@ -82,6 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ));
               },
             ),
+            ////-----------------------------------------------------------------------------------------------------------------------
             FutureBuilder<Movies>(
               future: ApiRepository.fetchMoviesData(),
               builder: (context, snapshot) {

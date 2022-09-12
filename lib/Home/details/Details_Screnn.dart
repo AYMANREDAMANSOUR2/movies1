@@ -7,16 +7,16 @@ import 'package:provider/provider.dart';
 
 class DetailsScreen extends StatelessWidget {
   Results? movieResult;
-
   DetailsScreen(this.movieResult);
 
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<AppProvider>(context);
     Size size = MediaQuery.of(context).size;
-
     return Scaffold(
       appBar: AppBar(
+        elevation: 20,
+        shadowColor: Colors.blue,
         backgroundColor: Colors.black,
         title: Text(movieResult!.title ?? ''),
       ),
@@ -31,20 +31,14 @@ class DetailsScreen extends StatelessWidget {
                     height: size.height * 0.22,
                     child: Stack(
                       children: [
-                        Image.network(
-                          'https://image.tmdb.org/t/p/w500' +
-                              '${movieResult?.backdropPath ?? ''}',
+                        Image.network('https://image.tmdb.org/t/p/w500' + '${movieResult?.backdropPath ?? ''}',
                           fit: BoxFit.cover,
                           width: double.infinity,
                         ),
                         Positioned(
                           left: size.width * 0.40,
                           top: size.height * 0.08,
-                          child: Icon(
-                            Icons.play_circle_filled,
-                            size: 70,
-                            color: Colors.white,
-                          ),
+                          child: Icon(Icons.play_circle_filled, size: 90, color: Colors.white,),
                         )
                       ],
                     ),
@@ -54,25 +48,21 @@ class DetailsScreen extends StatelessWidget {
             ),
             Row(
               children: [
-                SizedBox(width: 10),
+                SizedBox(width: 20),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(height: 10),
-                    Text(
-                      movieResult?.title ?? '',
+                    Text(movieResult?.title ?? '',
                       overflow: TextOverflow.visible,
                       maxLines: 2,
                       style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.white,
+                        fontSize: 18,
+                        color: Colors.red,
                       ),
                     ),
                     SizedBox(height: 8),
-                    Text(
-                      movieResult?.releaseDate ?? '',
-                      style: TextStyle(
-                        fontSize: 13,
+                    Text(movieResult?.releaseDate ?? '', style: TextStyle(fontSize: 13,
                         color: Color.fromRGBO(181, 180, 180, 1.0),
                       ),
                     ),
@@ -81,9 +71,7 @@ class DetailsScreen extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
-              height: 10,
-            ),
+            SizedBox(height: 10,),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -97,9 +85,7 @@ class DetailsScreen extends StatelessWidget {
                       children: [
                         InkWell(
                           onTap: () {},
-                          child: Image.network(
-                            'https://image.tmdb.org/t/p/w500' +
-                                '${movieResult!.posterPath}',
+                          child: Image.network('https://image.tmdb.org/t/p/w500' + '${movieResult!.posterPath}',
                             fit: BoxFit.cover,
                             width: 130,
                             height: 200,
@@ -131,41 +117,33 @@ class DetailsScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(8),
                           border: Border.all(color: Colors.grey),
                         ),
-                        child: Padding(
-                          // No attribute in the API refers to movie Type !!!!!!!!!!!!!!!!
-                          // No attribute in the API refers to movie Type !!!!!!!!!!!!!!!!
-                          // No attribute in the API refers to movie Type !!!!!!!!!!!!!!!!
-                          padding: const EdgeInsets.all(5.0),
-                          child: Text(
-                            'Action',
-                            style: TextStyle(color: Colors.grey, fontSize: 18),
-                          ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(5.0),
+                              child: Text('Variety movie', textAlign: TextAlign.center, style: TextStyle(color: Colors.grey, fontSize: 18),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
                           movieResult!.overview ?? '',
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: Colors.cyan, fontSize: 15),
                         ),
                       ),
                       Row(
                         children: [
                           Icon(
                             Icons.star,
-                            color: Colors.yellow,
-                            size: 20,
+                            color: Colors.redAccent,
+                            size: 30,
                           ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            '${movieResult!.voteAverage}',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 18,
-                            ),
-                          ),
+                          SizedBox(width: 5,),
+                          Text('${movieResult!.voteAverage}', style: TextStyle(color: Colors.white, fontSize: 18,),),
                         ],
                       ),
                     ],
@@ -177,13 +155,15 @@ class DetailsScreen extends StatelessWidget {
               height: 10,
             ),
             FutureBuilder<Movies>(
-              future: ApiRepository.fetchSimilar(
-                movieResult?.id ?? 0,
+              future: ApiRepository.fetchSimilar( //from Api
+                movieResult?.id ?? 7,
               ),
               builder: (context, snapshot) {
+                //                                          check
                 if (snapshot.hasData) {
                   return MoreMoviesWidget(snapshot.data);
-                } else if (snapshot.hasError) {
+                }
+                else if (snapshot.hasError) {
                   return Center(
                       child: Text(
                         '${snapshot.error}',

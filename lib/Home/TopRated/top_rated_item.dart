@@ -25,7 +25,7 @@ class TopRatedItem extends StatelessWidget {
         children: [
           Stack(
             children: [
-              ItemPhotoWidget(topMovies, index),
+              ItemPhotoWidget(topMovies, index), // pic from Api
             ],
           ),
           Container(

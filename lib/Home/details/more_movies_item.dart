@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:movies/Home/ItemPhotoWidget.dart';
 import 'package:movies/Model/Movies%20and%20Results.dart';
+// belong to details screen    ===>        details screen => more movies widget => more movies item
 
 class MoreMovieItem extends StatelessWidget {
   Movies? topMovies;
   int index;
-
   MoreMovieItem(this.topMovies, this.index);
 
   @override
@@ -18,7 +18,7 @@ class MoreMovieItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(6),
         color: Color.fromRGBO(52, 53, 52, 1.0),
         boxShadow: [
-          BoxShadow(color: Colors.black45, blurRadius: 1.6),
+          BoxShadow(color: Colors.white, blurRadius: 1.6),
         ],
       ),
       child: Column(

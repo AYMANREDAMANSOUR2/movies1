@@ -7,12 +7,12 @@ class AppProvider extends ChangeNotifier {
   Map<int, Results> list = {};
 
   void selectMovie(Results resultsMovie) {
-    if (!idList.contains(resultsMovie.id)) {
+    if (!idList.contains(resultsMovie.id)) { // if watch list don't contain this id add it
       watchList.add(resultsMovie);
       idList.add(resultsMovie.id!);
       print('${idList}');
       print('${watchList}');
-    } else if (idList.contains(resultsMovie.id)) {
+    } else if (idList.contains(resultsMovie.id)) { // id
       idList.remove(resultsMovie.id);
       watchList.removeWhere((element) => element.id == resultsMovie.id);
       print('${idList}');

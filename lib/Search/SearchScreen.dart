@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:movies/Model/Movies and Results.dart';
 import 'package:movies/Search/Search%20item.dart';
 import 'package:movies/Srevices/API/Api%20repository.dart';
@@ -25,39 +26,32 @@ class _SearchScreenState extends State<SearchScreen> {
             height: 48,
             child: TextFormField(
               // controller: textController,
-
-              onChanged: (String? value) {
-                searchKey = value ?? '';
-                setState(() {});
-              },
+              onChanged: (String? value) {searchKey = value ?? '';setState(() {});},
               style: TextStyle(
-                color: Colors.white,
+                color: Colors.orangeAccent,
               ),
               decoration: InputDecoration(
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Colors.grey,
-                    width: 2,
-                  ),
+                  borderSide: BorderSide(color: Colors.orangeAccent, width: 2,),
                   borderRadius: BorderRadius.circular(30),
                 ),
-                filled: true,
-                fillColor: Color.fromRGBO(81, 79, 79, 1.0),
+                filled: false,
+                // fillColor: Color.fromRGBO(81, 79, 79, 1.0),
                 enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Colors.grey,
-                    width: 2,
+                  borderSide: BorderSide(color: Colors.greenAccent,
+                    width: 1,
                   ),
-                  borderRadius: BorderRadius.circular(30),
+                  borderRadius: BorderRadius.circular(35),
                 ),
                 enabled: true,
                 prefixIcon: Icon(
                   Icons.search,
-                  color: Colors.white,
+                  color: Colors.blueAccent,
                   size: 24,
                 ),
                 hintText: 'search',
                 hintStyle: TextStyle(
+                  fontSize: 20,
                   color: Colors.grey,
                 ),
               ),
@@ -68,17 +62,14 @@ class _SearchScreenState extends State<SearchScreen> {
             child: ListView.separated(
               itemBuilder: (BuildContext context, index) {
                 return SearchItem(
-                    loadSearchData().elementAt(index), index);
+                    loadSearchData().elementAt(index), index); // load search from Api
               },
-              separatorBuilder: (BuildContext context, index) {
-                return Container(
-                  margin: EdgeInsets.only(
-                      left: 2, right: 2, top: 18, bottom: 18),
+              separatorBuilder: (BuildContext context, index) {return Container(
+                  margin: EdgeInsets.only(left: 2, right: 2, top: 18, bottom: 18),
                   width: double.infinity,
                   height: 1,
                   color: Color.fromRGBO(181, 180, 180, 1.0),
-                );
-              },
+                );},
               itemCount: loadSearchData().length,
             ),
           )
@@ -86,18 +77,8 @@ class _SearchScreenState extends State<SearchScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(
-                  Icons.local_movies,
-                  color: Color.fromRGBO(181, 180, 180, 1.0),
-                  size: 150,
-                ),
-                Text(
-                  'No movies found',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Color.fromRGBO(181, 180, 180, 1.0),
-                  ),
-                ),
+                Lottie.asset("assets/images/1961-movie-loading.json") ,
+                Lottie.asset("assets/images/60901-no-search-results-animation.json", width: 50,height: 50)
               ],
             ),
           ),
@@ -105,7 +86,7 @@ class _SearchScreenState extends State<SearchScreen> {
       ),
     );
   }
-//------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------
   List loadSearchData() {
     ApiRepository.fetchSearch(searchKey).then((value) {
       result = value.results ?? [];

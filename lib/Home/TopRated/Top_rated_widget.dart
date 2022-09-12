@@ -4,7 +4,6 @@ import 'package:movies/Model/Movies%20and%20Results.dart';
 
 class TopRatedWidget extends StatelessWidget {
   Movies? topMovies;
-
   TopRatedWidget(this.topMovies);
 
   @override
@@ -18,20 +17,15 @@ class TopRatedWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Recomended',
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-            ),
-          ),
-          const SizedBox(height: 10),
+          const Text(
+            'Recommended and Top Rated Movies',
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white,),),
+          const SizedBox(height: 12),
           Expanded(
             child: ListView.builder(
+              shrinkWrap: false,
               scrollDirection: Axis.horizontal,
-              itemBuilder: (BuildContext context, int index) =>
-                  TopRatedItem(topMovies, index),
+              itemBuilder: (BuildContext context, int index) =>  TopRatedItem(topMovies, index),
               itemCount: topMovies?.results?.length ?? 0,
             ),
           ),

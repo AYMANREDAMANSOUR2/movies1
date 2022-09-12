@@ -2,7 +2,6 @@
 
 class GenersModel {
   List<Genres>? genres;
-
   GenersModel({this.genres});
 
   GenersModel.fromJson(dynamic json) {

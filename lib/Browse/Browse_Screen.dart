@@ -17,10 +17,11 @@ class BrowseScreen extends StatelessWidget {
           children: [
             Text(
               'Browse Category',
+              textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: Colors.redAccent,
               ),
             ),
             FutureBuilder<GenersModel>(
@@ -37,17 +38,17 @@ class BrowseScreen extends StatelessWidget {
                     ConnectionState.waiting) {
                   return Center(
                     child: const CircularProgressIndicator(
-                      color: Color.fromRGBO(255, 187, 59, 1.0),
+                      color: Colors.blue,
                     ),
                   );
                 }
                 return Expanded(
                   child: GridView.builder(
-                    gridDelegate:
-                    const SliverGridDelegateWithFixedCrossAxisCount(
+                    padding: EdgeInsets.all(17),
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
-                      crossAxisSpacing: 4,
-                      mainAxisSpacing: 4,
+                      crossAxisSpacing: 12,
+                      mainAxisSpacing: 12,
                       childAspectRatio: 3 / 2,
                     ),
                     itemBuilder: (context, index) {

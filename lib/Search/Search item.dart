@@ -33,8 +33,7 @@ class SearchItem extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(6),
                     child: Image.network(
-                      'https://image.tmdb.org/t/p/w500' +
-                          '${movieResponse!.posterPath}',
+                      'https://image.tmdb.org/t/p/w500' + '${movieResponse!.posterPath}',
                       fit: BoxFit.cover,
                       width: 150,
                       height: 100,
@@ -83,7 +82,7 @@ class SearchItem extends StatelessWidget {
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    fontSize: 13,
+                    fontSize: 16,
                     color: Color.fromRGBO(181, 180, 180, 1.0),
                   ),
                 ),
