@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:movies/Home/ItemPhotoWidget.dart';
-import 'package:movies/Model/Movies%20and%20Results.dart';
+import 'package:movies/Model_From_API/Movies%20and%20Results.dart';
+// belong to details screen    ===>        details screen => more movies widget => more movies item
 
-class TopRatedItem extends StatelessWidget {
+class MoreMovieItem extends StatelessWidget {
   Movies? topMovies;
   int index;
-
-  TopRatedItem(this.topMovies, this.index);
+  MoreMovieItem(this.topMovies, this.index);
 
   @override
   Widget build(BuildContext context) {
@@ -18,14 +18,14 @@ class TopRatedItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(6),
         color: Color.fromRGBO(52, 53, 52, 1.0),
         boxShadow: [
-          BoxShadow(color: Colors.black45, blurRadius: 1.6),
+          BoxShadow(color: Colors.white, blurRadius: 1.6),
         ],
       ),
       child: Column(
         children: [
           Stack(
             children: [
-              ItemPhotoWidget(topMovies, index), // pic from Api
+              ItemPhotoWidget(topMovies, index),
             ],
           ),
           Container(
@@ -77,3 +77,4 @@ class TopRatedItem extends StatelessWidget {
     );
   }
 }
+

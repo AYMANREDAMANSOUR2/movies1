@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:movies/Home/TopRated/top_rated_item.dart';
-import 'package:movies/Model/Movies%20and%20Results.dart';
+import 'package:movies/Model_From_API/Movies%20and%20Results.dart';
+
+import 'top_rated_item.dart';
 
 class TopRatedWidget extends StatelessWidget {
   Movies? topMovies;
+
   TopRatedWidget(this.topMovies);
 
   @override

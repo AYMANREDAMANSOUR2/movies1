@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:movies/Browse/Browse_Screen.dart';
-import 'package:movies/Search/SearchScreen.dart';
-import 'package:movies/watch/watch_screen.dart';
-
-import '../Home/HomeScreen.dart';
+import 'package:movies/Home/Browse/Browse_Screen.dart';
+import 'package:movies/Home/HomeScreen.dart';
+import 'package:movies/Home/Search/SearchScreen.dart';
+import 'package:movies/Home/watch/watch_screen.dart';
 
 class HomeLayout extends StatefulWidget {
   static const String routeName = '';
+
   @override
   State<HomeLayout> createState() => _HomeLayoutState();
 }

@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:movies/Browse/browse_list.dart';
-import 'package:movies/Model/Geners.dart';
+import 'package:movies/Home/Browse/browse_list.dart';
+import 'package:movies/Model_From_API/Geners.dart';
 
 class BrowesWidget extends StatelessWidget {
   Genres? generResponse;
+
   BrowesWidget(this.generResponse);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => BrowseList(generResponse!),),);
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (BuildContext context) => BrowseList(generResponse!),
+          ),
+        );
       },
       child: Container(
         color: Colors.black,

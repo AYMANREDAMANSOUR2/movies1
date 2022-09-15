@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:movies/Home/New_Relase_Movies/new_relase_item.dart';
-import 'package:movies/Model/Movies%20and%20Results.dart';
- //                                                              we will show it in  second row
+import 'package:movies/Home_Contents/New_Relase_Movies/new_relase_item.dart';
+import 'package:movies/Model_From_API/Movies%20and%20Results.dart';
+//                                                              we will show it in  second row
 
 class NewRelaseWidget extends StatelessWidget {
   Movies? topMovies;
+
   NewRelaseWidget(this.topMovies);
 
   @override

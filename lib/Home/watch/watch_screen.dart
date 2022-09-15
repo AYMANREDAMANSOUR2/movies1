@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:movies/Model/Movies%20and%20Results.dart';
+import 'package:movies/Home/watch/watch_item.dart';
+import 'package:movies/Model_From_API/Movies%20and%20Results.dart';
 import 'package:movies/Srevices/Provider.dart';
-import 'package:movies/watch/watch_item.dart';
 import 'package:provider/provider.dart';
 
 class WatchListScreen extends StatefulWidget {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:movies/Home/details/Details_Screnn.dart';
-import 'package:movies/Model/Movies and Results.dart';
+import 'package:movies/Model_From_API/Movies%20and%20Results.dart';
 import 'package:movies/Srevices/Provider.dart';
+import 'package:movies/details/Details_Screnn.dart';
 import 'package:provider/provider.dart';
 
 class SearchItem extends StatelessWidget {

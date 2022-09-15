@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:movies/Model/Movies and Results.dart';
-import 'package:movies/Search/Search%20item.dart';
+import 'package:movies/Home/Search/Search%20item.dart';
+import 'package:movies/Model_From_API/Movies%20and%20Results.dart';
 import 'package:movies/Srevices/API/Api%20repository.dart';
 
 class SearchScreen extends StatefulWidget {

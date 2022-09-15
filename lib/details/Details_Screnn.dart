@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:movies/Home/details/more%20movies%20widget.dart';
-import 'package:movies/Model/Movies%20and%20Results.dart';
+import 'package:movies/Model_From_API/Movies%20and%20Results.dart';
 import 'package:movies/Srevices/API/Api%20repository.dart';
 import 'package:movies/Srevices/Provider.dart';
+import 'package:movies/details/more%20movies%20widget.dart';
 import 'package:provider/provider.dart';
 
 class DetailsScreen extends StatelessWidget {

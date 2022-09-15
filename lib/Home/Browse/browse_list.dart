@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:movies/Model/Geners.dart';
-import 'package:movies/Model/Movies%20and%20Results.dart';
+import 'package:movies/Home/watch/watch_item.dart';
+import 'package:movies/Model_From_API/Geners.dart';
+import 'package:movies/Model_From_API/Movies%20and%20Results.dart';
 import 'package:movies/Srevices/API/Api%20repository.dart';
-import 'package:movies/watch/watch_item.dart';
 
 class BrowseList extends StatelessWidget {
   Genres? generResponse;

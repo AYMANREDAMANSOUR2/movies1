@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:movies/HomeLayout/HomeLayout.dart';
+import 'package:movies/Home/HomeLayout/HomeLayout.dart';
 import 'package:movies/Srevices/Provider.dart';
+import 'package:movies/drawerscreen/drawer.dart';
 import 'package:movies/style/theme.dart';
+import 'package:movies/video.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -27,6 +29,8 @@ class MyApp extends StatelessWidget {
       theme: MyThemeData.defaultTheme,
       routes: {
         HomeLayout.routeName: (BuildContext context) => HomeLayout(),
+        VideoScreen.routeName: (BuildContext context) => VideoScreen(),
+        Logo.routeName: (BuildContext context) => Logo(),
         // DetailsScreen.routeName: (BuildContext context) => DetailsScreen(),
       },
       initialRoute: HomeLayout.routeName,

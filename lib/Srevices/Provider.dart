@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../Model/Movies and Results.dart';
+import 'package:movies/Model_From_API/Movies%20and%20Results.dart';
 
 class AppProvider extends ChangeNotifier {
   List<Results> watchList = [ ];
@@ -10,14 +10,9 @@ class AppProvider extends ChangeNotifier {
     if (!idList.contains(resultsMovie.id)) { // if watch list don't contain this id add it
       watchList.add(resultsMovie);
       idList.add(resultsMovie.id!);
-      print('${idList}');
-      print('${watchList}');
     } else if (idList.contains(resultsMovie.id)) { // id
       idList.remove(resultsMovie.id);
       watchList.removeWhere((element) => element.id == resultsMovie.id);
-      print('${idList}');
-      print('${watchList}');
-      print('unselect item');
     }
     notifyListeners();
   }

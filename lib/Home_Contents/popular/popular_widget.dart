@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movies/Home/popular/popular_item.dart';
-import 'package:movies/Model/Movies%20and%20Results.dart';
+import 'package:movies/Home_Contents/popular/popular_item.dart';
+import 'package:movies/Model_From_API/Movies%20and%20Results.dart';
 
 class PopularWidget extends StatelessWidget {
   Results? resultResponse;
@@ -22,8 +22,14 @@ class PopularWidget extends StatelessWidget {
             child: Stack(
               //                                                                 large
               children: [
-                Image.network('https://image.tmdb.org/t/p/w500' + '${resultResponse!.backdropPath ?? ''}', fit: BoxFit.cover, width: double.infinity,),
-                Positioned(                           // play circle
+                Image.network(
+                  'https://image.tmdb.org/t/p/w500' +
+                      '${resultResponse!.backdropPath ?? ''}',
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                ),
+                Positioned(
+                  // play circle
                   left: size.width * 0.40,
                   top: size.height * 0.09,
                   child: Icon(
@@ -31,7 +37,9 @@ class PopularWidget extends StatelessWidget {
                     size: 70,
                     color: Colors.blue,
                   ),
-                ) /// paly circle
+                )
+
+                /// paly circle
               ],
             ),                                 //background image + circle play
           ),

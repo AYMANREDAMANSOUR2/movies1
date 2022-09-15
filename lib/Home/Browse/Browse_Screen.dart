@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movies/Browse/browse_widget.dart';
-import 'package:movies/Model/Geners.dart';
+import 'package:movies/Home/Browse/browse_widget.dart';
+import 'package:movies/Model_From_API/Geners.dart';
 import 'package:movies/Srevices/API/Api%20repository.dart';
 
 class BrowseScreen extends StatelessWidget {

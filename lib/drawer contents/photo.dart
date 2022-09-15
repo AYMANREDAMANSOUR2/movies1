@@ -4,10 +4,11 @@ import 'package:movies/Srevices/Provider.dart';
 import 'package:movies/details/Details_Screnn.dart';
 import 'package:provider/provider.dart';
 
-class ItemPhotoWidget extends StatelessWidget {
+class ItemPhotoWidgetdrawer extends StatelessWidget {
   Movies? movies;
   int index;
-  ItemPhotoWidget(this.movies, this.index);
+
+  ItemPhotoWidgetdrawer(this.movies, this.index);
 
   @override
   Widget build(BuildContext context) {
@@ -32,10 +33,12 @@ class ItemPhotoWidget extends StatelessWidget {
           },
           child: ClipRRect(
             borderRadius: BorderRadius.circular(6),
-            child: Image.network('https://image.tmdb.org/t/p/w500' + '${movies!.results!.elementAt(index).posterPath}',
+            child: Image.network(
+              'https://image.tmdb.org/t/p/w500' +
+                  '${movies!.results!.elementAt(index).posterPath}',
               fit: BoxFit.cover,
-              width: 120,
-              height: 130,
+              width: 250,
+              height: 160,
             ),
           ),
         ),
@@ -47,10 +50,14 @@ class ItemPhotoWidget extends StatelessWidget {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(4),
             child:
-            provider.idList.contains(movies!.results!.elementAt(index).id)
-                ? Image.asset('assets/images/ic_check.png')
-                : Icon(Icons.add_circle , color: Colors.blueAccent,shadows: [
-              Shadow(color: Colors.purple, blurRadius: 10)],),
+                provider.idList.contains(movies!.results!.elementAt(index).id)
+                    ? Image.asset('assets/images/ic_check.png')
+                    : Icon(
+                        Icons.watch_later,
+                        size: 30,
+                        color: Colors.greenAccent,
+                        shadows: [Shadow(color: Colors.purple, blurRadius: 10)],
+                      ),
           ),
         ),
       ],

@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:movies/Home/details/Details_Screnn.dart';
-import 'package:movies/Model/Movies%20and%20Results.dart';
+import 'package:movies/Model_From_API/Movies%20and%20Results.dart';
+
 import 'package:movies/Srevices/Provider.dart';
+import 'package:movies/details/Details_Screnn.dart';
 import 'package:provider/provider.dart';
 /////                                                                               small container take data from popular widget
 
 class PopularItem extends StatelessWidget {
   Results? resultResponse;
+
   PopularItem(this.resultResponse);
+
 //-----------------------------------------------------------------------------------------------------------------
   @override
   Widget build(BuildContext context) {

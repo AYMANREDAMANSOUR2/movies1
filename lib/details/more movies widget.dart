@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:movies/Home/details/more_movies_item.dart';
-import 'package:movies/Model/Movies%20and%20Results.dart';
+import 'package:movies/Model_From_API/Movies%20and%20Results.dart';
+import 'package:movies/details/more_movies_item.dart';
+
 // belong to details screen
 class MoreMoviesWidget extends StatelessWidget {
   Movies? topMovies;
